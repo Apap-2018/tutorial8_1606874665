@@ -21,7 +21,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 			.antMatchers("/css/**").permitAll()
 			.antMatchers("/js/**").permitAll()
 			.antMatchers("/car/**", "/dealer/view").hasAnyAuthority("DEALER")
-			.antMatchers("/dealer/**").hasAnyAuthority("ADMIN")
+			.antMatchers("/dealer/**", "/dealer/view").hasAnyAuthority("ADMIN")
 			.anyRequest().authenticated()
 			.and()
 			.formLogin()
@@ -45,11 +45,11 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 		return new BCryptPasswordEncoder();
 	}
 	
-	/**@Autowired
+	@Autowired
 	private UserDetailsService userDetailsService;
 	
 	@Autowired
 	public void configAuthentication(AuthenticationManagerBuilder auth) throws Exception{
 		auth.userDetailsService(userDetailsService).passwordEncoder(encoder());
-	}*/
+	}
 }
