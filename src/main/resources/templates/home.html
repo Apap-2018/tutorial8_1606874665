@@ -13,6 +13,7 @@
 
     <div class="container-fluid">
         <h2 th:text="'Hello ' + ${#httpServletRequest.remoteUser} + '!'">Login as</h2>
+        <p th:text="${msg}"></p>
         <div class="row">
             <div class="col-md-6">
                 <div class="card">
@@ -59,7 +60,7 @@
 							</div>
 							<div class="row form-group">
 								<label class="col-sd-4"> Password: </label>
-								<input class="col-sd-8 form-control input-sm" type="password" name="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" required>
+								<input class="col-sd-8 form-control input-sm" type="password" name="password" >
 							</div>
 							<div class="row form-group">
 								<label class="col-sd-4"> Role: </label>
