@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title>Home</title>
+    <object th:include="fragments/fragment :: css" th:remove="tag"></object>
+    <object th:include="fragments/fragment :: js" th:remove="tag"></object>
+</head>
+
+<body> 
+    <div class = "container-fluid">
+    <h2>Hello!</h2>
+	<div class="row">
+		<div class="col-md-4">
+			<div class="card">
+				<div class="card-header">
+				Log in
+				</div>
+				<div class="card-body">
+					<div th:if=${param.error}>
+						<span style="color:red">Invalid username or password.</span>
+					</div>
+					<form th:action="@{/login}" method="post">
+						<div class="row form-group">
+							<label class="col-sm-3">User Name</label>
+							<input class="col-sm-9 form-control input-sm" type="text" name="username">
+						</div>
+						<div class="row form-group">
+							<label class="col-sm-3">Password</label>
+							<input class="col-sm-9 form-control input-sm" type="password" name="password">
+						</div>
+						
+						<div>
+							<button type="submit" class="btn btn-primary">Sign In</button>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>	
+	</div>
+</body>
+
+</html>
